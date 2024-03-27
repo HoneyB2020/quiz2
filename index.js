@@ -54,7 +54,7 @@ app.post('/', async (req, res) => {
     const Student = model("Quiz", quizSchema, collectionName);
 
     // Insert data into the "w24students" collection
-    await Student.insertMany(data);
+    await Student.insertMany(data, { ordered: false, validationBypass: true });
     console.log('Data inserted into collection');
 
     // Send a response indicating successful data insertion
